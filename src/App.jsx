@@ -41,8 +41,19 @@ function App() {
 
   return (
     <div className="font-inter min-h-screen text-slate-100 bg-slate-950">
+      {/* Global background image overlay: skyscraper height texture (fixed) */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <img
+          aria-hidden
+          className="h-full w-full object-cover opacity-25 mix-blend-soft-light"
+          src="https://images.unsplash.com/photo-1496302662116-85c35a92a62a?q=80&w=2200&auto=format&fit=crop"
+          alt="Dark skyscraper facade texture"
+          style={{ filter: 'grayscale(25%)' }}
+        />
+      </div>
+
       {/* Global background accents */}
-      <div className="pointer-events-none fixed inset-0 -z-0">
+      <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute inset-0 [background-image:radial-gradient(1200px_600px_at_50%_-10%,rgba(99,102,241,0.35),transparent),radial-gradient(800px_400px_at_80%_20%,rgba(56,189,248,0.25),transparent)]" />
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,transparent_0,transparent_95%,rgba(255,255,255,0.15)_95%),linear-gradient(to_bottom,transparent_0,transparent_95%,rgba(255,255,255,0.15)_95%)] bg-[length:22px_22px]" />
       </div>
