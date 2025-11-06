@@ -8,9 +8,16 @@ const Hero = () => {
         <Spline scene="https://prod.spline.design/wwTRdG1D9CkNs368/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
-      {/* Content + gradient overlays (neutral slates only, no pink glow) */}
+      {/* Subtle photo texture overlay instead of blur bg */}
+      <img
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-soft-light pointer-events-none"
+        src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=2000&auto=format&fit=crop"
+        alt="Luxury interior background"
+      />
+
+      {/* Content + neutral slate gradients (do not block interactions) */}
       <div className="relative z-10 h-full">
-        {/* top and bottom gradients for legibility, do not block interactions */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-950/80 via-slate-900/30 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent" />
