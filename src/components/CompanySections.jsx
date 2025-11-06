@@ -60,28 +60,44 @@ const About = () => (
   </section>
 );
 
-const Services = () => (
-  <section id="services" className="py-20 bg-slate-900">
-    <div className="mx-auto max-w-7xl px-6">
-      <SectionTitle eyebrow="What we do" title="Services" subtitle="Buy, sell, rent or invest with confidence. Tailored to your goals." />
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          { title: 'Buy', desc: 'Find the right home at the right price with our curated inventory.' },
-          { title: 'Sell', desc: 'Professional marketing to attract qualified buyers and maximize value.' },
-          { title: 'Rent', desc: 'Trusted tenants and seamless rental management.' },
-          { title: 'Invest in REITs', desc: 'Diversify with income-generating real estate instruments.' },
-          { title: 'Property Consulting', desc: 'Market insights, legal guidance and negotiation strategy.' },
-          { title: 'Site Visits', desc: 'Flexible scheduling and on-ground assistance across NCR.' },
-        ].map((s) => (
-          <div key={s.title} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-sm hover:shadow-lg hover:border-white/20 transition">
-            <p className="text-lg font-semibold text-white">{s.title}</p>
-            <p className="mt-1 text-slate-300 text-sm">{s.desc}</p>
-          </div>
-        ))}
+const Services = () => {
+  const images = [
+    'https://images.unsplash.com/photo-1505692794403-34d4982f88aa?q=80&w=1600&auto=format&fit=crop', // Buy
+    'https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1600&auto=format&fit=crop', // Sell
+    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop', // Rent
+    'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1600&auto=format&fit=crop', // REITs
+    'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1600&auto=format&fit=crop', // Consulting
+    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop', // Site Visits
+  ];
+  const services = [
+    { title: 'Buy', desc: 'Find the right home at the right price with our curated inventory.' },
+    { title: 'Sell', desc: 'Professional marketing to attract qualified buyers and maximize value.' },
+    { title: 'Rent', desc: 'Trusted tenants and seamless rental management.' },
+    { title: 'Invest in REITs', desc: 'Diversify with income-generating real estate instruments.' },
+    { title: 'Property Consulting', desc: 'Market insights, legal guidance and negotiation strategy.' },
+    { title: 'Site Visits', desc: 'Flexible scheduling and on-ground assistance across NCR.' },
+  ];
+  return (
+    <section id="services" className="py-20 bg-slate-900">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionTitle eyebrow="What we do" title="Services" subtitle="Buy, sell, rent or invest with confidence. Tailored to your goals." />
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((s, idx) => (
+            <div key={s.title} className="rounded-2xl border border-white/10 bg-slate-900/60 shadow-sm hover:shadow-lg hover:border-white/20 transition overflow-hidden">
+              <div className="h-36 w-full overflow-hidden">
+                <img src={images[idx]} alt={`${s.title} service`} className="h-full w-full object-cover" />
+              </div>
+              <div className="p-6">
+                <p className="text-lg font-semibold text-white">{s.title}</p>
+                <p className="mt-1 text-slate-300 text-sm">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Blog = () => (
   <section id="blog" className="py-20 bg-slate-900">
@@ -149,15 +165,31 @@ const Testimonials = () => (
     <div className="mx-auto max-w-7xl px-6">
       <SectionTitle eyebrow="Social proof" title="What Clients Say" />
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {["Smooth buying experience and genuine advice.", "Great inventory and transparent process.", "Professional team with deep area knowledge."]
-          .map((t, i) => (
-            <div key={i} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-sm">
-              <div className="flex items-center gap-1 text-amber-300 mb-2">
-                {[...Array(5)].map((_, idx) => <Star key={idx} size={14} />)}
+        {[{
+          text: 'Smooth buying experience and genuine advice.',
+          img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop',
+          name: 'Aarav K.'
+        },{
+          text: 'Great inventory and transparent process.',
+          img: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop',
+          name: 'Nisha S.'
+        },{
+          text: 'Professional team with deep area knowledge.',
+          img: 'https://images.unsplash.com/photo-1541534401786-2077eed87a62?q=80&w=800&auto=format&fit=crop',
+          name: 'Rohit M.'
+        }].map((t, i) => (
+          <div key={i} className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-sm">
+            <div className="flex items-center gap-3 mb-3">
+              <img src={t.img} alt={`${t.name} avatar`} className="h-10 w-10 rounded-full object-cover" />
+              <div>
+                <p className="text-sm font-semibold text-white">{t.name}</p>
+                <div className="flex items-center gap-1 text-amber-300">
+                  {[...Array(5)].map((_, idx) => <Star key={idx} size={14} />)}
+                </div>
               </div>
-              <p className="text-slate-200">“{t}”</p>
-              <p className="mt-3 text-sm font-semibold text-white">— SheltOwn Client</p>
             </div>
+            <p className="text-slate-200">“{t.text}”</p>
+          </div>
         ))}
       </div>
     </div>

@@ -8,12 +8,12 @@ const Hero = () => {
         <Spline scene="https://prod.spline.design/wwTRdG1D9CkNs368/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
-      {/* Content + gradient overlays */}
+      {/* Content + gradient overlays (neutral slates only, no pink glow) */}
       <div className="relative z-10 h-full">
         {/* top and bottom gradients for legibility, do not block interactions */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-950/70 via-slate-950/20 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-950/80 via-slate-900/30 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent" />
         </div>
 
         <div className="mx-auto max-w-7xl px-6 h-full flex items-end md:items-center pb-20">
